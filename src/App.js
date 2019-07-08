@@ -1,26 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
+import React ,{Component} from 'react';
 import './App.css';
 
-function App() {
+ class  App extends Component {
+   constructor(props){
+     super(props);
+     this.state = {
+       monsters : []
+       
+     }
+   }
+
+   handleClick = (event) => {
+    // fetch('https://jsonplaceholder.typicode.com/users')
+    // .then(response => response.json())
+    // .then(users => this.setState({monsters:users}));
+   }
+
+   componentDidMount() {
+      fetch('https://jsonplaceholder.typicode.com/users')
+           .then(response => response.json())
+           .then(users => this.setState({monsters:users}));
+   }
+  render() {
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {
+        this.state.monsters.map((monster) => <h1 key={monster.id} >{monster.name}</h1>)
+      }
+      <button onClick = {this.handleClick}> ClickMe </button>
     </div>
   );
+  }
 }
 
 export default App;
