@@ -1,4 +1,5 @@
 import React ,{Component} from 'react';
+import CardList from './components/card-list/card-list'
 import './App.css';
 
  class  App extends Component {
@@ -25,9 +26,7 @@ import './App.css';
 
   return (
     <div className="App">
-      {
-        this.state.monsters.map((monster) => <h1 key={monster.id} >{monster.name}</h1>)
-      }
+     <CardList monsters = {this.state.monsters} />  
       <button onClick = {this.handleClick}> ClickMe </button>
     </div>
   );
