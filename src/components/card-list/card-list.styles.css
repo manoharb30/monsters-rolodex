@@ -1,4 +1,5 @@
 .card-list {
+    padding:10px;
     width: 85vw;
     margin: 0 auto;
     display: grid;

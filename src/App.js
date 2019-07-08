@@ -6,9 +6,15 @@ import './App.css';
    constructor(props){
      super(props);
      this.state = {
-       monsters : []
+       monsters : [],
+       searchField : ''
        
      }
+   }
+
+   handleOnChange = (event) => {
+     this.setState({searchField:event.target.value});
+     console.log(this.state.searchField);
    }
 
    handleClick = (event) => {
@@ -26,6 +32,7 @@ import './App.css';
 
   return (
     <div className="App">
+     <input type = "search" placeholder = "search monster" onChange = {this.handleOnChange} />
      <CardList monsters = {this.state.monsters} />  
       <button onClick = {this.handleClick}> ClickMe </button>
     </div>
