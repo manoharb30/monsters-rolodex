@@ -13,8 +13,8 @@ import './App.css';
    }
 
    handleOnChange = (event) => {
-     this.setState({searchField:event.target.value});
-     console.log(this.state.searchField);
+     this.setState({searchField:event.target.value}, () => console.log(this.state.searchField));
+     
    }
 
    handleClick = (event) => {
