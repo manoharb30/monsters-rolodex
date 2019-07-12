@@ -29,11 +29,13 @@ import './App.css';
            .then(users => this.setState({monsters:users}));
    }
   render() {
+    const { monsters, searchField } = this.state;
+    const filteredMonsters = monsters.filter(monster =>  monster.name.toLowerCase().includes(searchField.toLowerCase()));
 
   return (
     <div className="App">
      <input type = "search" placeholder = "search monster" onChange = {this.handleOnChange} />
-     <CardList monsters = {this.state.monsters} />  
+     <CardList monsters = {filteredMonsters} />  
       <button onClick = {this.handleClick}> ClickMe </button>
     </div>
   );
